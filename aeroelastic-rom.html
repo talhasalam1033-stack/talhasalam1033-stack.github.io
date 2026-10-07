@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aeroelasticity and beam stick models | Muhammad Talha</title>
+<meta name="description" content="In the structural analysis team at NaqCoDE I worked on aerospace and automotive products. My main task was building beam stick reduced order models of composite airframes from detailed shell models, and using them in aeroelastic analyses: flutter, divergence and control reversal.">
+<meta property="og:title" content="Aeroelasticity and beam stick models | Muhammad Talha">
+<meta property="og:description" content="In the structural analysis team at NaqCoDE I worked on aerospace and automotive products. My main task was building beam stick reduced order models of composite airframes from detailed shell models, and using them in aeroelastic analyses: flutter, divergence and control reversal.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column with a sticky name bar. Home = paper-like hero with Fig. 1,
+   key facts, interests, a grid of project cards, coursework by semester, experience, contact.
+   Project pages = a short header with key numbers, then text and numbered figures as in a paper. */
+:root {
+  --bg: #F6F8FA; --surface: #FFFFFF; --ink: #15212D; --muted: #566778; --line: #D8E0E7;
+  --accent: #1F4E79; --accent-soft: #E7EEF5; --plate: #FFFFFF; --warn: #8A5A00; --warn-soft: #FBF1DC;
+  --font-display: "Source Serif 4", "Times New Roman", Times, serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --step-4: clamp(2.3rem, 5vw, 3.3rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E151C; --surface: #141E28; --ink: #E4EBF2; --muted: #95A6B7; --line: #263441;
+    --accent: #84B4E0; --accent-soft: #182A3B; --plate: #F4F6F8; --warn: #E9C27A; --warn-soft: #2B2416; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E151C; --surface: #141E28; --ink: #E4EBF2; --muted: #95A6B7; --line: #263441;
+  --accent: #84B4E0; --accent-soft: #182A3B; --plate: #F4F6F8; --warn: #E9C27A; --warn-soft: #2B2416; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 1rem; line-height: 1.6; margin: 0; }
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+img { max-width: 100%; display: block; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-inline: 20px; }
+
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); border-bottom: 1px solid var(--line); }
+.bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 10px 18px; padding-block: 12px; flex-wrap: wrap; }
+.bar .name { font-family: var(--font-display); font-weight: 700; font-size: 1.12rem; color: var(--ink); text-decoration: none; }
+.bar nav { display: flex; gap: 6px 18px; flex-wrap: wrap; }
+.bar nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
+.bar nav a:hover { color: var(--accent); }
+
+.eyebrow { font-family: var(--font-mono); font-size: 0.76rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+.hero { padding-block: 52px 36px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 48px; align-items: center; }
+.hero > * { min-width: 0; }
+.hero h1 { font-family: var(--font-display); font-weight: 700; font-size: var(--step-4); line-height: 1.08; margin: 0 0 14px; letter-spacing: -0.01em; }
+.lede { font-family: var(--font-display); font-size: 1.32rem; line-height: 1.45; margin: 0 0 16px; text-wrap: balance; max-width: 36ch; }
+.bio { color: var(--muted); max-width: 62ch; margin: 0 0 22px; }
+.links { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-body); font-size: 0.92rem; font-weight: 500; padding: 9px 14px; border-radius: 6px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); text-decoration: none; cursor: pointer; }
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.btn.primary:hover { color: var(--bg); filter: brightness(1.08); }
+.email-text { font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted); user-select: all; overflow-wrap: anywhere; }
+
+figure { margin: 0; }
+.plate { background: var(--plate); border: 1px solid var(--line); border-radius: 8px; padding: 12px; }
+.plate img { margin: 0 auto; }
+.fig figcaption, .figcap { font-size: 0.86rem; color: var(--muted); margin-top: 10px; line-height: 1.5; }
+.figno { font-family: var(--font-mono); font-weight: 500; color: var(--ink); margin-right: 4px; }
+.hero .plate img { max-height: 340px; width: auto; }
+
+.facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; margin-bottom: 64px; }
+.fact { background: var(--surface); padding: 16px 18px; min-width: 0; }
+.fact .k { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); }
+.fact .v { font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; margin-top: 4px; line-height: 1.3; }
+.fact .s { font-size: 0.84rem; color: var(--muted); margin-top: 2px; }
+
+section { margin-bottom: 72px; scroll-margin-top: 84px; }
+.sec-head { display: flex; align-items: baseline; gap: 14px; border-bottom: 2px solid var(--accent); padding-bottom: 8px; margin-bottom: 26px; flex-wrap: wrap; }
+.sec-head h2 { font-family: var(--font-display); font-weight: 700; font-size: 2rem; margin: 0; line-height: 1.2; text-wrap: balance; }
+.sec-head .note { font-size: 0.9rem; color: var(--muted); margin-left: auto; }
+
+.interests { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 36px; margin: 0; padding: 0; list-style: none; }
+.interests li { min-width: 0; padding-left: 16px; border-left: 2px solid var(--accent-soft); }
+.interests h3 { font-family: var(--font-display); font-size: 1.12rem; font-weight: 600; margin: 0 0 2px; }
+.interests p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+/* project cards */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; color: var(--ink); text-decoration: none; min-width: 0; transition: border-color .15s, transform .15s; }
+.card:hover { border-color: var(--accent); transform: translateY(-2px); }
+@media (prefers-reduced-motion: reduce) { .card, .card:hover { transition: none; transform: none; } }
+.card .thumb { background: var(--plate); aspect-ratio: 16 / 10; display: flex; align-items: center; justify-content: center; padding: 10px; border-bottom: 1px solid var(--line); }
+.card .thumb img { max-height: 100%; width: auto; object-fit: contain; }
+.card .body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.card h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.18rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.card p { margin: 0; font-size: 0.92rem; color: var(--muted); }
+.card .more { margin-top: auto; padding-top: 6px; font-size: 0.88rem; color: var(--accent); font-weight: 500; }
+.meta { font-family: var(--font-mono); font-size: 0.74rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.badge { display: inline-block; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.04em; padding: 2px 7px; border-radius: 4px; background: var(--accent-soft); color: var(--ink); }
+.badge.warn { background: var(--warn-soft); color: var(--warn); }
+.keyline { font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink); }
+
+/* coursework */
+.semesters { display: grid; gap: 28px; }
+.semester h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; margin: 0; }
+.semester .sub { color: var(--muted); font-size: 0.92rem; margin: 2px 0 12px; }
+.modules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 0; padding: 0; list-style: none; }
+.module { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.module .mname { font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
+.module .mdesc { font-size: 0.86rem; color: var(--muted); }
+.module .mfoot { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; margin-top: auto; padding-top: 4px; font-size: 0.8rem; }
+.module .ects { font-family: var(--font-mono); font-size: 0.72rem; color: var(--muted); }
+
+/* experience and education */
+.role { display: grid; grid-template-columns: 190px 1fr; gap: 24px; padding-block: 20px; border-top: 1px solid var(--line); }
+.role:first-child { border-top: 0; padding-top: 0; }
+.role > * { min-width: 0; }
+.when { font-family: var(--font-mono); font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+.role h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; margin: 0; line-height: 1.3; }
+.role .org { color: var(--muted); font-size: 0.95rem; margin: 2px 0 10px; }
+.role ul { margin: 0; padding-left: 18px; }
+.role li { margin-bottom: 5px; }
+.role li::marker { color: var(--accent); }
+.route { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 10px 0 6px; font-size: 0.92rem; }
+.route .stop { background: var(--accent-soft); padding: 3px 9px; border-radius: 4px; }
+.route .arrow { color: var(--muted); font-family: var(--font-mono); }
+.skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px 40px; }
+.skills > div { min-width: 0; }
+.skills h3 { font-family: var(--font-mono); font-weight: 500; font-size: 0.76rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 6px; }
+.skills p { margin: 0; }
+
+.contact { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 28px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px; align-items: center; }
+.contact > * { min-width: 0; }
+.contact h2 { font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; margin: 0 0 8px; }
+.contact p { margin: 0; color: var(--muted); }
+.contact dl { margin: 0; display: grid; grid-template-columns: 90px 1fr; gap: 8px 12px; font-size: 0.95rem; }
+.contact dt { font-family: var(--font-mono); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); padding-top: 3px; }
+.contact dd { margin: 0; min-width: 0; }
+.copy-status { font-size: 0.8rem; color: var(--muted); }
+footer { border-top: 1px solid var(--line); padding-block: 22px 36px; color: var(--muted); font-size: 0.85rem; }
+
+/* project page */
+.crumbs { font-size: 0.88rem; margin: 26px 0 0; }
+.crumbs a { color: var(--muted); text-decoration: none; }
+.crumbs a:hover { color: var(--accent); }
+.phead { padding-block: 18px 28px; border-bottom: 1px solid var(--line); margin-bottom: 34px; }
+.phead h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.9rem, 4vw, 2.6rem); line-height: 1.15; margin: 10px 0 12px; text-wrap: balance; max-width: 32ch; }
+.phead .summary { font-family: var(--font-display); font-size: 1.22rem; line-height: 1.5; margin: 0 0 18px; max-width: 60ch; }
+.facts-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.facts-row > div { background: var(--surface); padding: 12px 14px; min-width: 0; }
+.facts-row .n { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; line-height: 1.25; }
+.facts-row .l { font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
+.pgrid { display: grid; grid-template-columns: 220px 1fr; gap: 40px; }
+.pgrid > * { min-width: 0; }
+.aside { font-size: 0.9rem; position: sticky; top: 90px; align-self: start; }
+.aside dl { margin: 0; display: grid; gap: 12px; }
+.aside dt { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); }
+.aside dd { margin: 2px 0 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.tags li { font-family: var(--font-mono); font-size: 0.72rem; padding: 3px 8px; border-radius: 4px; background: var(--accent-soft); color: var(--ink); }
+.prose { max-width: 70ch; }
+.prose h2 { font-family: var(--font-display); font-weight: 700; font-size: 1.45rem; margin: 34px 0 10px; line-height: 1.3; }
+.prose h2:first-child { margin-top: 0; }
+.prose p, .prose ul, .prose ol { margin: 0 0 14px; }
+.prose li { margin-bottom: 6px; }
+.prose li::marker { color: var(--accent); }
+.prose .fig { margin: 22px 0 26px; max-width: 100%; }
+.callout { border-left: 3px solid var(--accent); background: var(--accent-soft); padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 18px 0; font-size: 0.95rem; }
+.callout.warn { border-left-color: var(--warn); background: var(--warn-soft); }
+.tbl { overflow-x: auto; margin: 10px 0 20px; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--font-mono); font-weight: 500; font-size: 0.74rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+td.num, th.num { text-align: right; }
+tr.hl td { background: var(--accent-soft); font-weight: 600; }
+.pager { display: flex; justify-content: space-between; gap: 16px; border-top: 1px solid var(--line); padding-top: 18px; margin-top: 46px; flex-wrap: wrap; }
+.pager a { text-decoration: none; font-size: 0.92rem; max-width: 46%; }
+.pager span { display: block; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); }
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; gap: 30px; padding-block: 34px 26px; }
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .modules { grid-template-columns: repeat(2, 1fr); }
+  .facts, .facts-row { grid-template-columns: repeat(2, 1fr); }
+  .pgrid { grid-template-columns: 1fr; gap: 24px; }
+  .aside { position: static; }
+  .contact { grid-template-columns: 1fr; }
+}
+@media (max-width: 620px) {
+  .cards, .modules, .interests, .skills, .facts { grid-template-columns: 1fr; }
+  .role { grid-template-columns: 1fr; gap: 6px; }
+  .sec-head .note { margin-left: 0; }
+  .pager a { max-width: 100%; }
+}
+
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: -6px 0 24px; }
+.chip { font-family: var(--font-body); font-size: 0.86rem; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; }
+.chip:hover { border-color: var(--accent); }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.group-head { display: flex; align-items: baseline; gap: 12px; margin: 30px 0 14px; flex-wrap: wrap; }
+.group-head:first-of-type { margin-top: 0; }
+.group-head h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; margin: 0; }
+.group-head span { font-family: var(--font-mono); font-size: 0.76rem; color: var(--muted); }
+.card .thumb.text { flex-direction: column; align-items: flex-start; justify-content: flex-end; background: var(--accent-soft); padding: 18px; gap: 4px; }
+.card .thumb.text .big { font-family: var(--font-display); font-weight: 700; font-size: 2.3rem; line-height: 1.05; color: var(--accent); }
+.card .thumb.text .small { font-size: 0.86rem; color: var(--muted); }
+.card .thumb img[src$=".svg"] { width: 100%; height: auto; max-height: 100%; }
+.fields { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.field { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; min-width: 0; }
+.field h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.08rem; margin: 0 0 4px; }
+.field p { margin: 0; font-size: 0.9rem; color: var(--muted); }
+.field .count { font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent); margin-top: 8px; }
+.is-hidden { display: none !important; }
+@media (max-width: 900px) { .fields { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 620px) { .fields { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header class="bar"><div class="wrap">
+<a class="name" href="index.html">Muhammad Talha</a>
+<nav aria-label="Sections"><a href="index.html#work">Projects</a><a href="index.html#coursework">Coursework</a><a href="index.html#experience">Experience</a><a href="index.html#education">Education</a><a href="index.html#contact">Contact</a></nav>
+</div></header>
+<main class="wrap">
+<p class="crumbs"><a href="index.html#work">&larr; All projects</a></p>
+<header class="phead">
+  <div class="meta"><span>Industry, NaqCoDE Technologies</span></div><div style="margin-top:8px"><span class="badge ">Client work, described in words only</span></div>
+  <h1>Aeroelastic analysis and beam stick reduced order models</h1>
+  <p class="summary">In the structural analysis team at NaqCoDE I worked on aerospace and automotive products. My main task was building beam stick reduced order models of composite airframes from detailed shell models, and using them in aeroelastic analyses: flutter, divergence and control reversal.</p>
+  <div class="facts-row"><div><div class="n">Beam stick</div><div class="l">reduced order models from detailed shell models</div></div><div><div class="n">SOL 145</div><div class="l">flutter with the PK method and doublet lattice aerodynamics</div></div><div><div class="n">SOL 144</div><div class="l">static aeroelasticity: trim, control reversal, divergence</div></div><div><div class="n">2 years</div><div class="l">full time, then remote work</div></div></div>
+</header>
+<div class="pgrid">
+  <aside class="aside"><dl><div><dt>Where</dt><dd>NaqCoDE Technologies, Islamabad</dd></div><div><dt>Period</dt><dd>12/2023 to 08/2025, then remotely</dd></div><div><dt>Role</dt><dd>Design and Structural Analysis Engineer</dd></div><div><dt>Tools</dt><dd>MSC Patran, Nastran and Flightloads, Ansys, MSC Adams, Python, MATLAB</dd></div><div><dt>Note</dt><dd>Client work under confidentiality. No models, results or images are shown.</dd></div><div><dt>Keywords</dt><dd><ul class="tags"><li>Aeroelasticity</li><li>Flutter</li><li>Reduced order models</li><li>Beam stick models</li><li>MSC Nastran</li><li>Composites</li></ul></dd></div></dl></aside>
+  <article class="prose">
+<h2>What the work involved</h2>
+<ul>
+<li>Built beam stick reduced order models of composite fuselages, wings and tails from detailed shell models in MSC Patran and Nastran, extracting axial, bending and torsional stiffness at stations along each component.</li>
+<li>Built lumped mass models by splitting the airframe into segments and placing each segment's mass at its centre of gravity, and compared mass and free-free modes of the reduced and full models.</li>
+<li>Set up flutter analyses in MSC Flightloads and Nastran SOL 145 with the PK method: doublet lattice panels on the lifting surfaces, surface splines to the structure, and Mach and reduced frequency sets.</li>
+<li>Post-processed V-g and V-f diagrams, located the flutter speed at the zero damping crossing, and checked it against the 15% flutter margin of MIL-A-8870C.</li>
+<li>Ran static aeroelastic analyses in SOL 144: roll trim with an aileron, elastic and rigid control derivatives over dynamic pressure, control reversal and divergence.</li>
+<li>Also ran fluid structure interaction in Ansys, modal and buckling analyses in Nastran, multibody analysis in MSC Adams, and analytical design calculations for aerospace and automotive parts.</li>
+<li>Wrote an internal step by step procedure for the aeroelastic workflow and presented a training session on beam stick model development to the team.</li>
+</ul>
+<figure class="fig"><div class="plate"><a href="img/aero-workflow.svg" target="_blank" rel="noopener"><img src="img/aero-workflow.svg" alt="Six step workflow from detailed shell model to section properties, beam stick model, checks, aerodynamic coupling and flutter and static aeroelastic solutions." loading="lazy"></a></div><figcaption><span class="figno">Fig. 1</span>How a beam stick model feeds an aeroelastic analysis. A generic workflow drawn for this portfolio, with no project data.</figcaption></figure>
+<h2>Why beam stick models</h2>
+<p>Wings, tails and slender fuselages bend and twist globally like beams. A stick model with the right stiffness on the elastic axis and the right masses at their centres of gravity reproduces that global behaviour at a fraction of the cost of the full model. It makes flutter and loads iterations fast, and it can be shared with partners without handing over the detailed design.</p>
+<h2>What I learned</h2>
+<p>A reduced model is only as good as its validation. Matching total mass is not enough: the centre of gravity, the inertias and the first bending and torsion modes must match the full model before the stick model can be trusted in a flutter analysis. Torsion constants of thin walled closed sections and cut planes that pass through frames or bulkheads need particular care. For aeroelastic results, I learned to always state the unit system, to check that the Mach number and density match the flight condition, and to reproduce a published benchmark before changing anything.</p>
+<nav class="pager" aria-label="More projects"><a href="framed-tube-tower.html"><span>Previous</span>Parametric study of a 200 m framed tube tower</a><a href="pipe-repair.html" style="text-align:right"><span>Next</span>Composite repair of a corroded subsea pipeline</a></nav></article>
+</div>
+</main>
+<footer><div class="wrap">Muhammad Talha &middot; Last updated October 2026</div></footer>
+</body>
+</html>
