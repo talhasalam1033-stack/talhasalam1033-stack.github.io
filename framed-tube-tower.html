@@ -209,6 +209,11 @@ tr.hl td { background: var(--accent-soft); font-weight: 600; }
 .field p { margin: 0; font-size: 0.9rem; color: var(--muted); }
 .field .count { font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent); margin-top: 8px; }
 .is-hidden { display: none !important; }
+.hero-figs { display: grid; gap: 18px; }
+.hero-figs .fig { margin: 0; }
+.hero-figs .plate { display: block; text-decoration: none; transition: border-color .15s; }
+.hero-figs .plate:hover { border-color: var(--accent); }
+.hero-figs .plate img { max-height: 230px; width: auto; max-width: 100%; display: block; margin: 0 auto; }
 @media (max-width: 900px) { .fields { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 620px) { .fields { grid-template-columns: 1fr; } }
 </style>
@@ -231,7 +236,7 @@ tr.hl td { background: var(--accent-soft); font-weight: 600; }
   <article class="prose">
 <h2>The question</h2>
 <p>The lateral system decides how a tall building resists wind, and it gets more expensive as buildings get more slender. We asked how three ways of placing steel in the perimeter columns of a framed tube change lateral drift, steel use and member utilization, and how many columns per face are worth having.</p>
-<figure class="fig"><div class="plate"><a href="img/report1-1.jpg" target="_blank" rel="noopener"><img src="img/report1-1.jpg" alt="Three renders of a tall rectangular frame tower." loading="lazy" style="max-width:760px"></a></div><figcaption><span class="figno">Fig. 1</span>The 200 m baseline tower: an 11 by 9 perimeter column grid and 76 floors, in 3D, front and side views.</figcaption></figure>
+<figure class="fig"><div class="plate"><a href="img/report1-1.jpg" target="_blank" rel="noopener"><img src="img/report1-1.jpg" alt="Three renders of a tall rectangular frame tower." loading="lazy" style="max-width:min(100%, 760px)"></a></div><figcaption><span class="figno">Fig. 1</span>The 200 m baseline tower: an 11 by 9 perimeter column grid and 76 floors, in 3D, front and side views.</figcaption></figure>
 <h2>What we did</h2>
 <ul>
 <li>Built the whole tower parametrically in Grasshopper with Karamba3D: beam elements for columns and spandrel beams, meshed shell slabs for diaphragm action, fixed supports, S355 steel and C30/37 concrete.</li>
@@ -249,7 +254,7 @@ tr.hl td { background: var(--accent-soft); font-weight: 600; }
 <tr class="hl"><td>Height-graded columns</td><td class="num">10.9 mm</td><td class="num">85%</td><td class="num">17.95%</td></tr>
 </tbody></table></div>
 <p>Thick corners give the least drift, because the corners add most to the global moment of inertia, but they carry the most steel. Grading the columns with height saves about 15% of the steel for an 11% increase in drift, since overturning moment and shear are largest at the base. The uniform tube shows clear shear lag, with the central columns of each face carrying less axial force than the corners.</p>
-<figure class="fig"><div class="plate"><a href="img/report1-3.jpg" target="_blank" rel="noopener"><img src="img/report1-3.jpg" alt="Three front views of the tower frame coloured by utilization." loading="lazy" style="max-width:760px"></a></div><figcaption><span class="figno">Fig. 3</span>Member utilization for the uniform, corner-reinforced and height-graded towers.</figcaption></figure>
+<figure class="fig"><div class="plate"><a href="img/report1-3.jpg" target="_blank" rel="noopener"><img src="img/report1-3.jpg" alt="Three front views of the tower frame coloured by utilization." loading="lazy" style="max-width:min(100%, 760px)"></a></div><figcaption><span class="figno">Fig. 3</span>Member utilization for the uniform, corner-reinforced and height-graded towers.</figcaption></figure>
 <figure class="fig"><div class="plate"><a href="img/report1-4.png" target="_blank" rel="noopener"><img src="img/report1-4.png" alt="Line chart of maximum deformation against number of columns." loading="lazy"></a></div><figcaption><span class="figno">Fig. 4</span>Top drift falls steeply from 5 to 7 columns along the wind direction and levels off beyond about 9 to 11.</figcaption></figure>
 <h2>What I learned</h2>
 <p>A parametric model turns design questions into quick experiments, and the shear lag concept explained results that the numbers alone did not. Every layout stayed far below its strength limit, so in this tower stiffness and steel use, not strength, drive the design.</p>

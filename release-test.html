@@ -209,6 +209,11 @@ tr.hl td { background: var(--accent-soft); font-weight: 600; }
 .field p { margin: 0; font-size: 0.9rem; color: var(--muted); }
 .field .count { font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent); margin-top: 8px; }
 .is-hidden { display: none !important; }
+.hero-figs { display: grid; gap: 18px; }
+.hero-figs .fig { margin: 0; }
+.hero-figs .plate { display: block; text-decoration: none; transition: border-color .15s; }
+.hero-figs .plate:hover { border-color: var(--accent); }
+.hero-figs .plate img { max-height: 230px; width: auto; max-width: 100%; display: block; margin: 0 auto; }
 @media (max-width: 900px) { .fields { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 620px) { .fields { grid-template-columns: 1fr; } }
 </style>
@@ -231,6 +236,7 @@ tr.hl td { background: var(--accent-soft); font-weight: 600; }
   <article class="prose">
 <h2>The question</h2>
 <p>A plate is pulled down 20 mm through a loaded arm, held, released, and allowed to ring down. A reference Abaqus model of the test already existed. The task was to show that the same methodology can be reproduced in a different solver, with every engineering choice documented.</p>
+<figure class="fig"><div class="plate"><a href="img/release-setup.svg" target="_blank" rel="noopener"><img src="img/release-setup.svg" alt="Schematic of a plate on two supports with a pad and an arm at mid span, a downward arrow and a dashed deflected shape." loading="lazy"></a></div><figcaption><span class="figno">Fig. 1</span>The test: an aluminium plate on two supports carries a rubber pad and a loaded steel arm; it is pulled down 20 mm, held and released. Schematic drawn for this portfolio.</figcaption></figure>
 <h2>What I did</h2>
 <ul>
 <li>Built the plate, 4 mm rubber pad and steel arm in Inventor with bonded contacts, and matched the mass distribution of the reference so the centre of gravity stays right.</li>

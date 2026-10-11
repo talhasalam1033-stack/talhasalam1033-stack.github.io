@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Size effects in buckling of lattice columns | Muhammad Talha</title>
-<meta name="description" content="Columns cut from a hexagonal lattice whose three bar families have independent stiffnesses, used to separate classical, surface and bulk size effects in buckling. The goal is to identify an internal length for second gradient beam models.">
+<meta name="description" content="Columns cut from a hexagonal lattice whose three bar families have independent stiffnesses, used to separate classical, surface and bulk size effects in buckling. The aim was to identify an internal length for second gradient beam models.">
 <meta property="og:title" content="Size effects in buckling of lattice columns | Muhammad Talha">
-<meta property="og:description" content="Columns cut from a hexagonal lattice whose three bar families have independent stiffnesses, used to separate classical, surface and bulk size effects in buckling. The goal is to identify an internal length for second gradient beam models.">
+<meta property="og:description" content="Columns cut from a hexagonal lattice whose three bar families have independent stiffnesses, used to separate classical, surface and bulk size effects in buckling. The aim was to identify an internal length for second gradient beam models.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: one reading column with a sticky name bar. Home = paper-like hero with Fig. 1,
@@ -209,6 +209,11 @@ tr.hl td { background: var(--accent-soft); font-weight: 600; }
 .field p { margin: 0; font-size: 0.9rem; color: var(--muted); }
 .field .count { font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent); margin-top: 8px; }
 .is-hidden { display: none !important; }
+.hero-figs { display: grid; gap: 18px; }
+.hero-figs .fig { margin: 0; }
+.hero-figs .plate { display: block; text-decoration: none; transition: border-color .15s; }
+.hero-figs .plate:hover { border-color: var(--accent); }
+.hero-figs .plate img { max-height: 230px; width: auto; max-width: 100%; display: block; margin: 0 auto; }
 @media (max-width: 900px) { .fields { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 620px) { .fields { grid-template-columns: 1fr; } }
 </style>
@@ -221,17 +226,17 @@ tr.hl td { background: var(--accent-soft); font-weight: 600; }
 <main class="wrap">
 <p class="crumbs"><a href="index.html#work">&larr; All projects</a></p>
 <header class="phead">
-  <div class="meta"><span>Ongoing research</span></div><div style="margin-top:8px"><span class="badge warn">Work in progress</span></div>
+  <div class="meta"><span>Research project, University of Trento</span></div><div style="margin-top:8px"><span class="badge ">Sole author</span></div>
   <h1>Buckling size effects in multi-stiffness hexagonal lattice columns</h1>
-  <p class="summary">Columns cut from a hexagonal lattice whose three bar families have independent stiffnesses, used to separate classical, surface and bulk size effects in buckling. The goal is to identify an internal length for second gradient beam models.</p>
+  <p class="summary">Columns cut from a hexagonal lattice whose three bar families have independent stiffnesses, used to separate classical, surface and bulk size effects in buckling. The aim was to identify an internal length for second gradient beam models.</p>
   <div class="facts-row"><div><div class="n">3</div><div class="l">independent size sweeps</div></div><div><div class="n">4</div><div class="l">stiffness sets, stiff to soft ratio 100</div></div><div><div class="n">1.5%</div><div class="l">agreement of two lattices that theory says are equivalent</div></div><div><div class="n">0 fitted</div><div class="l">parameters in the classical shear correction</div></div></div>
 </header>
 <div class="pgrid">
-  <aside class="aside"><dl><div><dt>Where</dt><dd>University of Trento, DICAM</dd></div><div><dt>Supervisor</dt><dd>Prof. Francesco Dal Corso</dd></div><div><dt>Period</dt><dd>05/2026 to present</dd></div><div><dt>Role</dt><dd>Independent research, sole author of the models and reports</dd></div><div><dt>Status</dt><dd>Unpublished, results preliminary</dd></div><div><dt>Keywords</dt><dd><ul class="tags"><li>Second gradient elasticity</li><li>Architected lattices</li><li>Buckling</li><li>Size effects</li><li>Homogenisation</li><li>COMSOL</li></ul></dd></div></dl></aside>
+  <aside class="aside"><dl><div><dt>Where</dt><dd>University of Trento, DICAM</dd></div><div><dt>Supervisor</dt><dd>Prof. Francesco Dal Corso</dd></div><div><dt>Period</dt><dd>2026</dd></div><div><dt>Role</dt><dd>Independent research, sole author of the models and reports</dd></div><div><dt>Status</dt><dd>Completed, unpublished</dd></div><div><dt>Keywords</dt><dd><ul class="tags"><li>Second gradient elasticity</li><li>Architected lattices</li><li>Buckling</li><li>Size effects</li><li>Homogenisation</li><li>COMSOL</li></ul></dd></div></dl></aside>
   <article class="prose">
 <h2>The question</h2>
 <p>How does the buckling load of a slender column change with its size when its stiffness is not uniform across the section? A hexagonal lattice whose three bar families have independent stiffnesses is a clean test case: soft bars can be placed inside the section or on its surface, while the equivalent continuum properties stay known in closed form from published homogenisation results (Rizzi et al.).</p>
-<figure class="fig"><div class="plate"><a href="img/multistiffness-1.png" target="_blank" rel="noopener"><img src="img/multistiffness-1.png" alt="Hexagon with red outer bars and green and blue spokes, next to a tall lattice column on a fixed base with a downward arrow at the top." loading="lazy" style="max-width:520px"></a></div><figcaption><span class="figno">Fig. 1</span>Hexagonal unit cell with three independently tunable bar stiffnesses (left) and a lattice column, clamped at the base and compressed from the top (right).</figcaption></figure>
+<figure class="fig"><div class="plate"><a href="img/multistiffness-1.png" target="_blank" rel="noopener"><img src="img/multistiffness-1.png" alt="Hexagon with red outer bars and green and blue spokes, next to a tall lattice column on a fixed base with a downward arrow at the top." loading="lazy" style="max-width:min(100%, 520px)"></a></div><figcaption><span class="figno">Fig. 1</span>Hexagonal unit cell with three independently tunable bar stiffnesses (left) and a lattice column, clamped at the base and compressed from the top (right).</figcaption></figure>
 <h2>What I did</h2>
 <ul>
 <li>Built truss models in COMSOL of columns cut from the lattice, mirror symmetric and made of complete cells, clamped at the base with a uniform displacement at the top. A stationary step gives the reaction, and a linear buckling step gives the critical load.</li>
@@ -239,20 +244,19 @@ tr.hl td { background: var(--accent-soft); font-weight: 600; }
 <li>Normalised the critical load by the Euler load of the equivalent continuum and removed the classical Engesser shear correction analytically, with no fitted parameter. What remains is a residual that classical elasticity does not explain.</li>
 <li>Ran three size sweeps that a single self similar family cannot provide: fixed aspect ratio (H/d = 10.4), fixed depth (d = 7.79 l, H from 38.9 l to 155.5 l) and fixed height (H = 116.5 l, d from 4.33 l to 11.26 l), where l is the cell side.</li>
 </ul>
-<h2>Preliminary results</h2>
-<div class="callout warn">These results are from internal progress reports and are still under discussion with my supervisor.</div>
+<h2>Results</h2>
 <ul>
 <li>For the uniform lattice, the residual falls from 0.093 to 0.013 as the column gets longer, so its deviation from Euler is mostly an end effect.</li>
 <li>With soft bars on the surface, the residual only falls from 0.129 to 0.093 and stays three to seven times larger than in the other sets.</li>
 <li>At fixed height, the soft perimeter column drops from 0.912 to 0.814 of the Euler load as the section gets thinner, while the stiff perimeter sets stay between 0.93 and 0.97.</li>
 <li>The two inner soft sets, which theory predicts to be equivalent, agree within 1.5%, a built in check on the models.</li>
-<li>The residual against depth follows neither 1/d nor 1/d&sup2;. My working hypothesis is a combined surface and bulk law, which is now being tested.</li>
+<li>The residual against depth follows neither 1/d nor 1/d&sup2;; the data point to a combined surface and bulk law.</li>
 </ul>
-<figure class="fig"><div class="plate"><a href="img/multistiffness-2.png" target="_blank" rel="noopener"><img src="img/multistiffness-2.png" alt="Line plot of normalised buckling load against (l over d) squared for four stiffness sets." loading="lazy"></a></div><figcaption><span class="figno">Fig. 2</span>Preliminary. Normalised buckling load at fixed height: columns with stiff perimeter bars stay near the Euler load, while the soft perimeter column falls from 0.912 to 0.814.</figcaption></figure>
-<figure class="fig"><div class="plate"><a href="img/multistiffness-3.png" target="_blank" rel="noopener"><img src="img/multistiffness-3.png" alt="Line plot of the residual against column height for four stiffness sets." loading="lazy"></a></div><figcaption><span class="figno">Fig. 3</span>Preliminary. Residual after removing the shear correction at fixed depth: the uniform lattice residual fades with length, the soft perimeter residual does not.</figcaption></figure>
+<figure class="fig"><div class="plate"><a href="img/multistiffness-2.png" target="_blank" rel="noopener"><img src="img/multistiffness-2.png" alt="Line plot of normalised buckling load against (l over d) squared for four stiffness sets." loading="lazy"></a></div><figcaption><span class="figno">Fig. 2</span>Normalised buckling load at fixed height: columns with stiff perimeter bars stay near the Euler load, while the soft perimeter column falls from 0.912 to 0.814.</figcaption></figure>
+<figure class="fig"><div class="plate"><a href="img/multistiffness-3.png" target="_blank" rel="noopener"><img src="img/multistiffness-3.png" alt="Line plot of the residual against column height for four stiffness sets." loading="lazy"></a></div><figcaption><span class="figno">Fig. 3</span>Residual after removing the shear correction at fixed depth: the uniform lattice residual fades with length, the soft perimeter residual does not.</figcaption></figure>
 <h2>What I learned</h2>
 <p>Designing the numerical experiment matters as much as running it. Separate sweeps in length and depth are what tell an end effect from a section effect, and subtracting the known classical correction without fitting keeps the remaining signal honest. When an earlier one parameter fit returned an unphysical internal length, the useful step was to question the assumed scaling law instead of forcing it.</p>
-<p>Next steps: link the fitted coefficients to the second gradient beam equation, and test the surface hypothesis with a thicker soft skin.</p>
+<p>Open questions for future work: linking the fitted coefficients to the second gradient beam equation, and testing the surface hypothesis with a thicker soft skin.</p>
 <nav class="pager" aria-label="More projects"><a href="index.html#work"><span>Back</span>All projects</a><a href="acoustic-metasurface.html" style="text-align:right"><span>Next</span>Acoustic metasurface: from paper to printed part</a></nav></article>
 </div>
 </main>

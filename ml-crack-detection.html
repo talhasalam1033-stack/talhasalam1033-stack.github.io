@@ -209,6 +209,11 @@ tr.hl td { background: var(--accent-soft); font-weight: 600; }
 .field p { margin: 0; font-size: 0.9rem; color: var(--muted); }
 .field .count { font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent); margin-top: 8px; }
 .is-hidden { display: none !important; }
+.hero-figs { display: grid; gap: 18px; }
+.hero-figs .fig { margin: 0; }
+.hero-figs .plate { display: block; text-decoration: none; transition: border-color .15s; }
+.hero-figs .plate:hover { border-color: var(--accent); }
+.hero-figs .plate img { max-height: 230px; width: auto; max-width: 100%; display: block; margin: 0 auto; }
 @media (max-width: 900px) { .fields { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 620px) { .fields { grid-template-columns: 1fr; } }
 </style>
@@ -231,7 +236,7 @@ tr.hl td { background: var(--accent-soft); font-weight: 600; }
   <article class="prose">
 <h2>The question</h2>
 <p>A crack inside a concrete column changes how microwaves scatter. Sensors placed around the column send and receive signals, and the question is whether a regression model trained on simulated examples can read the crack's position, length and tilt directly from the measured field, quickly enough for monitoring.</p>
-<figure class="fig"><div class="plate"><a href="img/mlshm-1.png" target="_blank" rel="noopener"><img src="img/mlshm-1.png" alt="Sketch of a column with sensors and a 2D cross section with a crack." loading="lazy" style="max-width:620px"></a></div><figcaption><span class="figno">Fig. 1</span>Setup from the course: sensors on a ring around a concrete column; the 2D cross section contains the crack as an unknown scatterer.</figcaption></figure>
+<figure class="fig"><div class="plate"><a href="img/mlshm-1.png" target="_blank" rel="noopener"><img src="img/mlshm-1.png" alt="Sketch of a column with sensors and a 2D cross section with a crack." loading="lazy" style="max-width:min(100%, 620px)"></a></div><figcaption><span class="figno">Fig. 1</span>Setup from the course: sensors on a ring around a concrete column; the 2D cross section contains the crack as an unknown scatterer.</figcaption></figure>
 <h2>What we did</h2>
 <ul>
 <li>Each sample holds the real and imaginary scattered field for 27 views by 27 probes, 1458 values, and the targets are crack centre x and y, length L and tilt angle.</li>

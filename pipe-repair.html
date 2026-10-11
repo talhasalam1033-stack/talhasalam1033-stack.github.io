@@ -209,6 +209,11 @@ tr.hl td { background: var(--accent-soft); font-weight: 600; }
 .field p { margin: 0; font-size: 0.9rem; color: var(--muted); }
 .field .count { font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent); margin-top: 8px; }
 .is-hidden { display: none !important; }
+.hero-figs { display: grid; gap: 18px; }
+.hero-figs .fig { margin: 0; }
+.hero-figs .plate { display: block; text-decoration: none; transition: border-color .15s; }
+.hero-figs .plate:hover { border-color: var(--accent); }
+.hero-figs .plate img { max-height: 230px; width: auto; max-width: 100%; display: block; margin: 0 auto; }
 @media (max-width: 900px) { .fields { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 620px) { .fields { grid-template-columns: 1fr; } }
 </style>
@@ -241,6 +246,7 @@ tr.hl td { background: var(--accent-soft); font-weight: 600; }
 <li>Ran a mesh convergence study and a 30 case parametric study of fibre angle, wrap thickness, layer count, fibre type and application pressure, and sized the wrap to ISO/TS 24817 and ASME PCC-2.</li>
 </ul>
 <h2>Results</h2>
+<figure class="fig"><div class="plate"><a href="img/pipe-burst.png" target="_blank" rel="noopener"><img src="img/pipe-burst.png" alt="Two line plots of load proportionality factor against increment, with the peak marked on each." loading="lazy"></a></div><figcaption><span class="figno">Fig. 1</span>Riks load proportionality factor against increment for the corroded pipe (left, peak at 16.68 MPa) and the repaired pipe (right, peak at 25.87 MPa).</figcaption></figure>
 <div class="tbl"><table>
 <thead><tr><th>Case</th><th class="num">Burst pressure</th></tr></thead>
 <tbody>
@@ -254,6 +260,7 @@ tr.hl td { background: var(--accent-soft); font-weight: 600; }
 <li>The wrap restores essentially the full undamaged capacity. Hoop oriented fibres and thicker wraps reduce steel stress most, with diminishing returns beyond about 24 mm.</li>
 <li>The ASME PCC-2 long term strain check showed the adopted 16 mm wrap to be 21 to 41% thinner than required, depending on the service factor, which became a design recommendation.</li>
 </ul>
+<figure class="fig"><div class="plate"><a href="img/pipe-ligament.png" target="_blank" rel="noopener"><img src="img/pipe-ligament.png" alt="Line plot of hoop stress against radius for the unrepaired and repaired pipe, with the yield stress line." loading="lazy" style="max-width:min(100%, 640px)"></a></div><figcaption><span class="figno">Fig. 2</span>Hoop stress across the remaining wall under the corrosion patch, from the bore to the defect floor: the 16 mm wrap brings most of the ligament below the specified minimum yield stress.</figcaption></figure>
 <h2>What I learned</h2>
 <p>Agreement between two calculations is verification; agreement with a test is validation, and only the second shows the model describes reality. Small setup details, such as how loads are sequenced in a Riks analysis, can move the answer by several percent.</p>
 <nav class="pager" aria-label="More projects"><a href="aeroelastic-rom.html"><span>Previous</span>Aeroelasticity and beam stick models</a><a href="kitcar-vibration.html" style="text-align:right"><span>Next</span>Vibration of a kit car space frame</a></nav></article>

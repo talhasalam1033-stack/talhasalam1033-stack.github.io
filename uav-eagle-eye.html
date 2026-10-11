@@ -209,6 +209,11 @@ tr.hl td { background: var(--accent-soft); font-weight: 600; }
 .field p { margin: 0; font-size: 0.9rem; color: var(--muted); }
 .field .count { font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent); margin-top: 8px; }
 .is-hidden { display: none !important; }
+.hero-figs { display: grid; gap: 18px; }
+.hero-figs .fig { margin: 0; }
+.hero-figs .plate { display: block; text-decoration: none; transition: border-color .15s; }
+.hero-figs .plate:hover { border-color: var(--accent); }
+.hero-figs .plate img { max-height: 230px; width: auto; max-width: 100%; display: block; margin: 0 auto; }
 @media (max-width: 900px) { .fields { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 620px) { .fields { grid-template-columns: 1fr; } }
 </style>
@@ -239,8 +244,8 @@ tr.hl td { background: var(--accent-soft); font-weight: 600; }
 <li>Sized the tail from volume coefficients and checked the control surfaces: roll time of 0.47 s, elevator trim of 9.2 degrees against a 25 degree limit, and 22.6 degrees of rudder for asymmetric thrust against a 30 degree limit.</li>
 <li>Planned a carbon fibre hand lay-up structure, set up ArduPilot QuadPlane on a Pixhawk with flight termination parameters, and costed the build at Rs 298,950 with a business case for a spraying service.</li>
 </ul>
-<figure class="fig"><div class="plate"><a href="img/uav-2.png" target="_blank" rel="noopener"><img src="img/uav-2.png" alt="Two side views of the UAV with front propellers horizontal and then vertical." loading="lazy" style="max-width:700px"></a></div><figcaption><span class="figno">Fig. 2</span>Tilt-rotor concept: in hover all four rotors lift, and for cruise the front rotors tilt forward while the wing carries the weight.</figcaption></figure>
-<figure class="fig"><div class="plate"><a href="img/uav-3.png" target="_blank" rel="noopener"><img src="img/uav-3.png" alt="Plot of lift coefficient against semi span location." loading="lazy" style="max-width:560px"></a></div><figcaption><span class="figno">Fig. 3</span>Spanwise lift coefficient along the half wing, computed in MATLAB.</figcaption></figure>
+<figure class="fig"><div class="plate"><a href="img/uav-2.png" target="_blank" rel="noopener"><img src="img/uav-2.png" alt="Two side views of the UAV with front propellers horizontal and then vertical." loading="lazy" style="max-width:min(100%, 700px)"></a></div><figcaption><span class="figno">Fig. 2</span>Tilt-rotor concept: in hover all four rotors lift, and for cruise the front rotors tilt forward while the wing carries the weight.</figcaption></figure>
+<figure class="fig"><div class="plate"><a href="img/uav-3.png" target="_blank" rel="noopener"><img src="img/uav-3.png" alt="Plot of lift coefficient against semi span location." loading="lazy" style="max-width:min(100%, 560px)"></a></div><figcaption><span class="figno">Fig. 3</span>Spanwise lift coefficient along the half wing, computed in MATLAB.</figcaption></figure>
 <h2>My role</h2>
 <p>I led the team and organised the work, led the report and business case, and was part of the airframe and flight software sub-teams. The report covers the design stage; the flight tests were planned for later.</p>
 <nav class="pager" aria-label="More projects"><a href="release-test.html"><span>Previous</span>Reproducing a plate release test</a><a href="em-impact-device.html" style="text-align:right"><span>Next</span>Electromagnetic impact testing device</a></nav></article>

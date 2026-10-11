@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Aeroelasticity and beam stick models | Muhammad Talha</title>
-<meta name="description" content="In the structural analysis team at NaqCoDE I worked on aerospace and automotive products. My main task was building beam stick reduced order models of composite airframes from detailed shell models, and using them in aeroelastic analyses: flutter, divergence and control reversal.">
+<meta name="description" content="In the structural analysis team at NaqCoDE I worked on structural products for industrial clients. My main task was building beam stick reduced order models of large composite structures from detailed shell models, and using them in dynamic and aeroelastic stability analyses: flutter, divergence and control reversal.">
 <meta property="og:title" content="Aeroelasticity and beam stick models | Muhammad Talha">
-<meta property="og:description" content="In the structural analysis team at NaqCoDE I worked on aerospace and automotive products. My main task was building beam stick reduced order models of composite airframes from detailed shell models, and using them in aeroelastic analyses: flutter, divergence and control reversal.">
+<meta property="og:description" content="In the structural analysis team at NaqCoDE I worked on structural products for industrial clients. My main task was building beam stick reduced order models of large composite structures from detailed shell models, and using them in dynamic and aeroelastic stability analyses: flutter, divergence and control reversal.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: one reading column with a sticky name bar. Home = paper-like hero with Fig. 1,
@@ -209,6 +209,11 @@ tr.hl td { background: var(--accent-soft); font-weight: 600; }
 .field p { margin: 0; font-size: 0.9rem; color: var(--muted); }
 .field .count { font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent); margin-top: 8px; }
 .is-hidden { display: none !important; }
+.hero-figs { display: grid; gap: 18px; }
+.hero-figs .fig { margin: 0; }
+.hero-figs .plate { display: block; text-decoration: none; transition: border-color .15s; }
+.hero-figs .plate:hover { border-color: var(--accent); }
+.hero-figs .plate img { max-height: 230px; width: auto; max-width: 100%; display: block; margin: 0 auto; }
 @media (max-width: 900px) { .fields { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 620px) { .fields { grid-template-columns: 1fr; } }
 </style>
@@ -223,7 +228,7 @@ tr.hl td { background: var(--accent-soft); font-weight: 600; }
 <header class="phead">
   <div class="meta"><span>Industry, NaqCoDE Technologies</span></div><div style="margin-top:8px"><span class="badge ">Client work, described in words only</span></div>
   <h1>Aeroelastic analysis and beam stick reduced order models</h1>
-  <p class="summary">In the structural analysis team at NaqCoDE I worked on aerospace and automotive products. My main task was building beam stick reduced order models of composite airframes from detailed shell models, and using them in aeroelastic analyses: flutter, divergence and control reversal.</p>
+  <p class="summary">In the structural analysis team at NaqCoDE I worked on structural products for industrial clients. My main task was building beam stick reduced order models of large composite structures from detailed shell models, and using them in dynamic and aeroelastic stability analyses: flutter, divergence and control reversal.</p>
   <div class="facts-row"><div><div class="n">Beam stick</div><div class="l">reduced order models from detailed shell models</div></div><div><div class="n">SOL 145</div><div class="l">flutter with the PK method and doublet lattice aerodynamics</div></div><div><div class="n">SOL 144</div><div class="l">static aeroelasticity: trim, control reversal, divergence</div></div><div><div class="n">2 years</div><div class="l">full time, then remote work</div></div></div>
 </header>
 <div class="pgrid">
@@ -231,19 +236,19 @@ tr.hl td { background: var(--accent-soft); font-weight: 600; }
   <article class="prose">
 <h2>What the work involved</h2>
 <ul>
-<li>Built beam stick reduced order models of composite fuselages, wings and tails from detailed shell models in MSC Patran and Nastran, extracting axial, bending and torsional stiffness at stations along each component.</li>
-<li>Built lumped mass models by splitting the airframe into segments and placing each segment's mass at its centre of gravity, and compared mass and free-free modes of the reduced and full models.</li>
-<li>Set up flutter analyses in MSC Flightloads and Nastran SOL 145 with the PK method: doublet lattice panels on the lifting surfaces, surface splines to the structure, and Mach and reduced frequency sets.</li>
-<li>Post-processed V-g and V-f diagrams, located the flutter speed at the zero damping crossing, and checked it against the 15% flutter margin of MIL-A-8870C.</li>
-<li>Ran static aeroelastic analyses in SOL 144: roll trim with an aileron, elastic and rigid control derivatives over dynamic pressure, control reversal and divergence.</li>
-<li>Also ran fluid structure interaction in Ansys, modal and buckling analyses in Nastran, multibody analysis in MSC Adams, and analytical design calculations for aerospace and automotive parts.</li>
+<li>Built beam stick reduced order models of large composite structural assemblies from detailed shell models in MSC Patran and Nastran, extracting axial, bending and torsional stiffness at stations along each component.</li>
+<li>Built lumped mass models by splitting the structure into segments and placing each segment's mass at its centre of gravity, and compared mass and free-free modes of the reduced and full models.</li>
+<li>Set up flutter analyses in MSC Flightloads and Nastran SOL 145 with the PK method: doublet lattice aerodynamic panels, surface splines to the structure, and Mach and reduced frequency sets.</li>
+<li>Post-processed V-g and V-f diagrams, located the flutter speed at the zero damping crossing, and checked it against the required flutter margin.</li>
+<li>Ran static aeroelastic analyses in SOL 144: trim, elastic and rigid control derivatives over dynamic pressure, control reversal and divergence.</li>
+<li>Also ran fluid structure interaction in Ansys, modal and buckling analyses in Nastran, multibody analysis in MSC Adams, and analytical design calculations for structural components.</li>
 <li>Wrote an internal step by step procedure for the aeroelastic workflow and presented a training session on beam stick model development to the team.</li>
 </ul>
 <figure class="fig"><div class="plate"><a href="img/aero-workflow.svg" target="_blank" rel="noopener"><img src="img/aero-workflow.svg" alt="Six step workflow from detailed shell model to section properties, beam stick model, checks, aerodynamic coupling and flutter and static aeroelastic solutions." loading="lazy"></a></div><figcaption><span class="figno">Fig. 1</span>How a beam stick model feeds an aeroelastic analysis. A generic workflow drawn for this portfolio, with no project data.</figcaption></figure>
 <h2>Why beam stick models</h2>
-<p>Wings, tails and slender fuselages bend and twist globally like beams. A stick model with the right stiffness on the elastic axis and the right masses at their centres of gravity reproduces that global behaviour at a fraction of the cost of the full model. It makes flutter and loads iterations fast, and it can be shared with partners without handing over the detailed design.</p>
+<p>Slender structural components bend and twist globally like beams. A stick model with the right stiffness on the elastic axis and the right masses at their centres of gravity reproduces that global behaviour at a fraction of the cost of the full model. It makes flutter and loads iterations fast, and it can be shared with partners without handing over the detailed design.</p>
 <h2>What I learned</h2>
-<p>A reduced model is only as good as its validation. Matching total mass is not enough: the centre of gravity, the inertias and the first bending and torsion modes must match the full model before the stick model can be trusted in a flutter analysis. Torsion constants of thin walled closed sections and cut planes that pass through frames or bulkheads need particular care. For aeroelastic results, I learned to always state the unit system, to check that the Mach number and density match the flight condition, and to reproduce a published benchmark before changing anything.</p>
+<p>A reduced model is only as good as its validation. Matching total mass is not enough: the centre of gravity, the inertias and the first bending and torsion modes must match the full model before the stick model can be trusted in a flutter analysis. Torsion constants of thin walled closed sections and cut planes that pass through frames or bulkheads need particular care. For aeroelastic results, I learned to always state the unit system, to check that the Mach number and density match the operating condition, and to reproduce a published benchmark before changing anything.</p>
 <nav class="pager" aria-label="More projects"><a href="framed-tube-tower.html"><span>Previous</span>Parametric study of a 200 m framed tube tower</a><a href="pipe-repair.html" style="text-align:right"><span>Next</span>Composite repair of a corroded subsea pipeline</a></nav></article>
 </div>
 </main>

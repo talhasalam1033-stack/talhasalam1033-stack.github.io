@@ -209,6 +209,11 @@ tr.hl td { background: var(--accent-soft); font-weight: 600; }
 .field p { margin: 0; font-size: 0.9rem; color: var(--muted); }
 .field .count { font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent); margin-top: 8px; }
 .is-hidden { display: none !important; }
+.hero-figs { display: grid; gap: 18px; }
+.hero-figs .fig { margin: 0; }
+.hero-figs .plate { display: block; text-decoration: none; transition: border-color .15s; }
+.hero-figs .plate:hover { border-color: var(--accent); }
+.hero-figs .plate img { max-height: 230px; width: auto; max-width: 100%; display: block; margin: 0 auto; }
 @media (max-width: 900px) { .fields { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 620px) { .fields { grid-template-columns: 1fr; } }
 </style>
@@ -245,8 +250,8 @@ tr.hl td { background: var(--accent-soft); font-weight: 600; }
 <li>The cutoffs have closed forms that depend only on the micro and inertia parameters. With the given parameters they are 1.45, 5.99 and 7.75 (a double root), and they match the intercepts of the plotted branches.</li>
 <li>In 2D the curves are identical for every propagation angle, as expected for an isotropic model.</li>
 </ul>
-<figure class="fig"><div class="plate"><a href="img/project2-1.png" target="_blank" rel="noopener"><img src="img/project2-1.png" alt="Dispersion plot with six coloured branches." loading="lazy" style="max-width:760px"></a></div><figcaption><span class="figno">Fig. 2</span>Dispersion curves in 1D: two acoustic branches start at zero and four optic branches start at finite cutoff frequencies.</figcaption></figure>
-<figure class="fig"><div class="plate"><a href="img/project2-2.png" target="_blank" rel="noopener"><img src="img/project2-2.png" alt="Mathematica output of the cutoff frequency expressions and values." loading="lazy" style="max-width:760px"></a></div><figcaption><span class="figno">Fig. 3</span>Cutoff frequencies at k = 0, solved symbolically in Mathematica, and their numerical values.</figcaption></figure>
+<figure class="fig"><div class="plate"><a href="img/project2-1.png" target="_blank" rel="noopener"><img src="img/project2-1.png" alt="Dispersion plot with six coloured branches." loading="lazy" style="max-width:min(100%, 760px)"></a></div><figcaption><span class="figno">Fig. 2</span>Dispersion curves in 1D: two acoustic branches start at zero and four optic branches start at finite cutoff frequencies.</figcaption></figure>
+<figure class="fig"><div class="plate"><a href="img/project2-2.png" target="_blank" rel="noopener"><img src="img/project2-2.png" alt="Mathematica output of the cutoff frequency expressions and values." loading="lazy" style="max-width:min(100%, 760px)"></a></div><figcaption><span class="figno">Fig. 3</span>Cutoff frequencies at k = 0, solved symbolically in Mathematica, and their numerical values.</figcaption></figure>
 <h2>What I learned</h2>
 <p>Doing the tensor algebra by hand and then making the code agree with it, equation by equation, is slower than trusting the software but catches the errors that matter. The optic branches with finite cutoffs are the mechanism that lets such continuum models describe band gaps in metamaterials.</p>
 <nav class="pager" aria-label="More projects"><a href="band-gap-unit-cell.html"><span>Previous</span>A unit cell with a 92% complete band gap</a><a href="ml-crack-detection.html" style="text-align:right"><span>Next</span>Machine learning for microwave crack detection</a></nav></article>
