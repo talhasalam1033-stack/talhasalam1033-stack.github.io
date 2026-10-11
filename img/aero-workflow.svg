@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" font-family="IBM Plex Sans, Segoe UI, Arial, sans-serif">
+  <rect width="960" height="470" fill="#FFFFFF"/>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1F4E79"/>
+    </marker>
+  </defs>
+  <text x="30" y="34" font-size="13" fill="#566778" letter-spacing="1.5">STRUCTURAL MODEL</text>
+  <text x="30" y="264" font-size="13" fill="#566778" letter-spacing="1.5">AEROELASTIC ANALYSIS</text>
+
+  <!-- row 1 -->
+  <g>
+    <rect x="30" y="48" width="260" height="150" rx="8" fill="#E7EEF5" stroke="#1F4E79" stroke-width="1.5"/>
+    <text x="48" y="80" font-size="18" font-weight="600" fill="#15212D">1. Detailed shell model</text>
+    <text x="48" y="108" font-size="14" fill="#15212D">Skins, spars, ribs and frames</text>
+    <text x="48" y="130" font-size="14" fill="#15212D">in composite laminates</text>
+    <!-- mini wing box sketch -->
+    <g stroke="#1F4E79" stroke-width="1.2" fill="none">
+      <path d="M60,175 L250,160 L262,172 L72,187 Z"/>
+      <path d="M100,172 L104,184"/><path d="M140,169 L144,181"/><path d="M180,166 L184,178"/><path d="M220,163 L224,175"/>
+    </g>
+  </g>
+  <g>
+    <rect x="350" y="48" width="260" height="150" rx="8" fill="#E7EEF5" stroke="#1F4E79" stroke-width="1.5"/>
+    <text x="368" y="80" font-size="18" font-weight="600" fill="#15212D">2. Section properties</text>
+    <text x="368" y="108" font-size="14" fill="#15212D">Cut the model at stations and</text>
+    <text x="368" y="130" font-size="14" fill="#15212D">extract EA, EI and GJ</text>
+    <g stroke="#1F4E79" stroke-width="1.2" fill="none">
+      <rect x="380" y="150" width="56" height="34" rx="3"/>
+      <rect x="452" y="154" width="48" height="28" rx="3"/>
+      <rect x="516" y="157" width="40" height="22" rx="3"/>
+    </g>
+  </g>
+  <g>
+    <rect x="670" y="48" width="260" height="150" rx="8" fill="#E7EEF5" stroke="#1F4E79" stroke-width="1.5"/>
+    <text x="688" y="80" font-size="18" font-weight="600" fill="#15212D">3. Beam stick model</text>
+    <text x="688" y="108" font-size="14" fill="#15212D">Beams on the elastic axis,</text>
+    <text x="688" y="130" font-size="14" fill="#15212D">masses lumped at their CG</text>
+    <g>
+      <path d="M700,172 L900,162" stroke="#1F4E79" stroke-width="2.4"/>
+      <circle cx="720" cy="171" r="5" fill="#1F4E79"/><circle cx="770" cy="168.5" r="5" fill="#1F4E79"/>
+      <circle cx="820" cy="166" r="5" fill="#1F4E79"/><circle cx="870" cy="163.5" r="5" fill="#1F4E79"/>
+    </g>
+  </g>
+  <path d="M292,123 L346,123" stroke="#1F4E79" stroke-width="2" marker-end="url(#ar)"/>
+  <path d="M612,123 L666,123" stroke="#1F4E79" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- check arrow down -->
+  <path d="M800,200 L800,276" stroke="#1F4E79" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- row 2 -->
+  <g>
+    <rect x="670" y="280" width="260" height="150" rx="8" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.5"/>
+    <text x="688" y="312" font-size="17" font-weight="600" fill="#15212D">4. Check against full model</text>
+    <text x="688" y="340" font-size="14" fill="#15212D">Mass, CG and inertia</text>
+    <text x="688" y="362" font-size="14" fill="#15212D">Frequencies and mode shapes</text>
+    <text x="688" y="384" font-size="14" fill="#15212D">of bending and torsion</text>
+  </g>
+  <g>
+    <rect x="350" y="280" width="260" height="150" rx="8" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.5"/>
+    <text x="368" y="312" font-size="18" font-weight="600" fill="#15212D">5. Aerodynamic coupling</text>
+    <text x="368" y="340" font-size="14" fill="#15212D">Doublet lattice panels on the</text>
+    <text x="368" y="362" font-size="14" fill="#15212D">lifting surfaces, splined to the</text>
+    <text x="368" y="384" font-size="14" fill="#15212D">structure; Mach and k sets</text>
+  </g>
+  <g>
+    <rect x="30" y="280" width="260" height="150" rx="8" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.5"/>
+    <text x="48" y="312" font-size="18" font-weight="600" fill="#15212D">6. Solve and read results</text>
+    <text x="48" y="340" font-size="14" fill="#15212D">Flutter, SOL 145 (PK): V-g, V-f</text>
+    <text x="48" y="362" font-size="14" fill="#15212D">and the flutter margin</text>
+    <text x="48" y="384" font-size="14" fill="#15212D">Static, SOL 144: trim, control</text>
+    <text x="48" y="406" font-size="14" fill="#15212D">reversal and divergence</text>
+  </g>
+  <path d="M668,355 L614,355" stroke="#1F4E79" stroke-width="2" marker-end="url(#ar)"/>
+  <path d="M348,355 L294,355" stroke="#1F4E79" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="30" y="458" font-size="12" fill="#566778">Generic workflow, drawn for this portfolio. No project data.</text>
+</svg>
